@@ -1,0 +1,152 @@
+@import "../../../mixins.scss";
+
+.videos {
+  margin-bottom: 40px;
+
+  @include md {
+    margin-bottom: 30px;
+  }
+
+  .contentWrapper {
+    position: relative;
+  }
+
+  .arrow {
+    position: absolute;
+    z-index: 1;
+    top: 44%;
+    font-size: 30px;
+    color: black;
+    display: none;
+    opacity: 0.8;
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    @include md {
+      display: block;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &.left {
+      left: 30px;
+    }
+
+    &.right {
+      right: 30px;
+    }
+  }
+
+  .videoHeading {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+
+    @include md {
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+  }
+
+  .videoItems {
+    display: flex;
+    gap: 20px;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+
+    // @include md {
+    //   &::-webkit-scrollbar {
+    //     display: inline;
+    //     height: 8px;
+    //   }
+
+    //   &::-webkit-scrollbar-thumb {
+    //     cursor: pointer;
+    //     background: #f1f1f1;
+    //     border-radius: 10px;
+
+    //     &:hover {
+    //       background: #6a6969;
+    //     }
+    //   }
+    // }
+
+    .videoItem {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+      text-align: center;
+
+      .thumbnail {
+        position: relative;
+        width: 175px;
+        aspect-ratio: 16 / 9;
+        border-radius: 5px;
+
+        @include md {
+          width: 220px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 4px;
+          object-fit: cover;
+        }
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 50px;
+          height: 50px;
+        }
+      }
+
+      .title {
+        width: 175px;
+        color: white;
+        font-size: 14px;
+        line-height: 20px;
+        @include md {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        @include ellipsis(2);
+      }
+    }
+  }
+
+  .videosSkeleton {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .videoSkeleton {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 10px;
+
+      .poster {
+        width: 125px;
+        aspect-ratio: 16 / 9;
+        border-radius: 5px;
+
+        @include md {
+          width: 170px;
+        }
+      }
+
+      .row {
+        width: 100%;
+        height: 10px;
+        border-radius: 2px;
+      }
+    }
+  }
+}

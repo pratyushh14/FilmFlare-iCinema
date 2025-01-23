@@ -1,0 +1,90 @@
+@import "../../mixins.scss";
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--black3);
+  padding: 50px 0;
+  position: relative;
+
+  @include md {
+    gap: 0;
+    padding: 50px 0;
+  }
+
+  .terms {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 12px;
+    transition: all ease 0.3s;
+    margin-bottom: 20px;
+
+    @include md {
+      font-size: 16px;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .term {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--pink);
+      }
+    }
+  }
+
+  .description {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    max-width: 800px;
+    line-height: 20px;
+    opacity: 0.5;
+    color: white;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    font-size: 11px;
+
+    @include md {
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+  }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      width: 50px;
+      height: 50px;
+      background-color: var(--black2);
+      border-radius: 50%;
+      font-size: 16px;
+      color: white;
+
+      &:hover {
+        color: var(--pink);
+        box-shadow: 0 0 10px var(--pink);
+      }
+    }
+
+    @include md {
+      gap: 20px;
+    }
+  }
+}

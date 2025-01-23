@@ -1,0 +1,210 @@
+@import "../../mixins.scss";
+
+.corousel {
+  margin-bottom: 30px;
+  position: relative;
+
+  .contentWrapper {
+    position: relative;
+  }
+
+  .arrow {
+    position: absolute;
+    font-size: 30px;
+    z-index: 1;
+    top: 44%;
+    display: none;
+    color: black;
+    opacity: 0.8;
+    cursor: pointer;
+    transform: translateY(-50%);
+
+    @include md {
+      display: block;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &.left {
+      left: 30px;
+    }
+    &.right {
+      right: 30px;
+    }
+  }
+
+  .corouselItems {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    margin-right: -20px;
+    margin-left: -20px;
+    overflow-x: scroll;
+
+    @include md {
+      gap: 20px;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    .corouselItem {
+      width: 125px;
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include md {
+        width: calc(25% - 15px);
+      }
+
+      @include lg {
+        width: calc(20% - 16px);
+      }
+
+      .poster {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1.5;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 10px;
+
+        .lazy-load-image-background {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 12px;
+          }
+        }
+
+        .circleRating {
+          width: 40px;
+          height: 40px;
+          position: relative;
+          top: 30px;
+          background-color: white;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include md {
+            width: 50px;
+            height: 50px;
+          }
+
+          svg {
+            width: 80%;
+          }
+        }
+
+        .genreIds {
+          display: none;
+
+          @include md {
+            position: relative;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: flex-end;
+            gap: 5px;
+          }
+        }
+      }
+
+      .textBlock {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        gap: 10px;
+
+        .text {
+          font-size: 16px;
+          line-height: 24px;
+
+          @include ellipsis(1);
+
+          @include md {
+            font-size: 20px;
+          }
+        }
+
+        .date {
+          font-size: 14px;
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+  .loadingSkeleton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: -20px;
+    margin-left: -20px;
+    padding: 0 20px;
+    overflow-y: hidden;
+
+    @include md {
+      margin: 0;
+      padding: 0;
+      gap: 20px;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .skeletonItem {
+      width: 125px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include md {
+        width: calc(25% - 15px);
+      }
+
+      @include lg {
+        width: calc(20% - 16px);
+      }
+
+      .poster {
+        width: 100%;
+        aspect-ratio: 1 / 1.5;
+        padding: 10px;
+        border-radius: 12px;
+      }
+
+      .textBlock {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .text {
+          width: 100%;
+          height: 20px;
+        }
+
+        .date {
+          width: 100%;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
